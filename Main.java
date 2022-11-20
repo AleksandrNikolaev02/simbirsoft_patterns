@@ -1,15 +1,11 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
     public static void main(String[] args) {
-        Warehouse warehouse = new Warehouse();
-        QRCode qrCodeTV = new QRCode("неизвестно", "техника");
-        QRCode qrCodeEat = new QRCode("неизвестно", "продукты");
-        ConcreteProduct television = new ConcreteProduct(qrCodeTV, 210);
-        ConcreteProduct bread = new ConcreteProduct(qrCodeEat, 1);
-        System.out.println(television.getProductWeight());
-        warehouse.placing(television);
-        System.out.println(bread.getProductWeight());
-        warehouse.placing(bread);
-
+        Set<String> myset = new HashSet<>();
+        myset.add("hello");
+        myset.add("World");
+        System.out.println(myset);
     }
-
 }
