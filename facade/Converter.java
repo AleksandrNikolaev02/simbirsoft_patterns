@@ -1,8 +1,8 @@
 package facade;
 
-import converts.CSVConverter;
-import converts.JSONConverter;
-import converts.XMLConverter;
+import converters.CSVConverter;
+import converters.JSONConverter;
+import converters.XMLConverter;
 import files.File;
 
 public class Converter {

@@ -1,15 +1,16 @@
-package converts;
+package converters;
 
 import facade.ConversionAlgorithm;
-import files.CSVFile;
 import files.File;
+import files.XMLFile;
 
-public class CSVConverter implements ConversionAlgorithm {
+public class XMLConverter implements ConversionAlgorithm{
 
     private final String Name = "Output";
+
     @Override
     public File convert(File toConvert, String OutUrl) {
-        File CSVfile = new CSVFile(OutUrl, Name);
+        File XMLfile = new XMLFile(OutUrl, Name);
         for (int i = 0; i <= 200; i += 20) {
             progressPercentage(i, 200);
             try {
@@ -19,9 +20,9 @@ public class CSVConverter implements ConversionAlgorithm {
             }
         }
         System.out.println("Файл успешно сконвертирован!");
-        return CSVfile;
+        return XMLfile;
     }
-
+    
     private void progressPercentage(int remain, int total) {
         if (remain > total) {
             throw new IllegalArgumentException();
@@ -42,5 +43,4 @@ public class CSVConverter implements ConversionAlgorithm {
             System.out.print("\n");
         }
     }
-    
 }

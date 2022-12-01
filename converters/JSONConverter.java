@@ -1,16 +1,16 @@
-package converts;
+package converters;
 
 import facade.ConversionAlgorithm;
 import files.File;
-import files.XMLFile;
+import files.JSONFile;
 
-public class XMLConverter implements ConversionAlgorithm{
+public class JSONConverter implements ConversionAlgorithm{
 
     private final String Name = "Output";
 
     @Override
     public File convert(File toConvert, String OutUrl) {
-        File XMLfile = new XMLFile(OutUrl, Name);
+        File JSONFile = new JSONFile(OutUrl, Name);
         for (int i = 0; i <= 200; i += 20) {
             progressPercentage(i, 200);
             try {
@@ -20,9 +20,9 @@ public class XMLConverter implements ConversionAlgorithm{
             }
         }
         System.out.println("Файл успешно сконвертирован!");
-        return XMLfile;
+        return JSONFile;
     }
-    
+
     private void progressPercentage(int remain, int total) {
         if (remain > total) {
             throw new IllegalArgumentException();

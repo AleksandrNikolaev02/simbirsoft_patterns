@@ -1,16 +1,15 @@
-package converts;
+package converters;
 
 import facade.ConversionAlgorithm;
+import files.CSVFile;
 import files.File;
-import files.JSONFile;
 
-public class JSONConverter implements ConversionAlgorithm{
+public class CSVConverter implements ConversionAlgorithm {
 
     private final String Name = "Output";
-
     @Override
     public File convert(File toConvert, String OutUrl) {
-        File JSONFile = new JSONFile(OutUrl, Name);
+        File CSVfile = new CSVFile(OutUrl, Name);
         for (int i = 0; i <= 200; i += 20) {
             progressPercentage(i, 200);
             try {
@@ -20,7 +19,7 @@ public class JSONConverter implements ConversionAlgorithm{
             }
         }
         System.out.println("Файл успешно сконвертирован!");
-        return JSONFile;
+        return CSVfile;
     }
 
     private void progressPercentage(int remain, int total) {
@@ -43,4 +42,5 @@ public class JSONConverter implements ConversionAlgorithm{
             System.out.print("\n");
         }
     }
+    
 }
