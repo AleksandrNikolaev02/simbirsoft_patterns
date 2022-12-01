@@ -1,21 +1,21 @@
 package main;
 
-import concrets.ConcreteProduct;
-import storage.Warehouse;
-import storage.QRCode;
+import facade.Converter;
+import files.CSVFile;
+import files.File;
+import files.JSONFile;
+import files.XMLFile;
 
 public class Main {
     public static void main(String[] args) {
-        Warehouse warehouse = new Warehouse();
-        QRCode qrCodeTV = new QRCode("неизвестно", "техника");
-        QRCode qrCodeEat = new QRCode("неизвестно", "продукты");
-        ConcreteProduct television = new ConcreteProduct(qrCodeTV, 210);
-        ConcreteProduct bread = new ConcreteProduct(qrCodeEat, 1);
-        System.out.println(television.getProductWeight());
-        warehouse.placing(television);
-        System.out.println(bread.getProductWeight());
-        warehouse.placing(bread);
+        File xFile = new XMLFile(null, "fileXML");
+        File jFile = new JSONFile("c:/temp", "fileJSON");
+        File cFile = new CSVFile("c:/temp", "fileCSV");
 
+        Converter converter = new Converter();//facade
+
+        jFile = converter.convert(jFile, ".csv", "c:/temp/files");
+        System.out.println(jFile.getTypeFile());//csv
     }
 
 }
